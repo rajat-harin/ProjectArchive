@@ -1,0 +1,109 @@
+html {
+    font-family: 'Outfit', sans-serif;
+    color: #FFFFFF;
+    background: #151C1F;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    font-family: 'Outfit', sans-serif;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #151C1F;
+}
+
+nav ul li {
+    float: right;
+}
+
+.logo {
+    float: left;
+}
+
+.logo a:hover {
+    background-color: #151C1F;
+}
+
+nav ul li a {
+    display: block;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+
+}
+
+nav ul li a:hover {
+    background-color: #92E3A9;
+}
+
+main {
+    margin: 20px;
+    padding: 10px;
+}
+
+.tagLine {
+    width: 50%;
+    margin: 5px 0;
+    float: left;
+    font-weight: 700;
+    font-size: 64px;
+}
+
+.tagLine p {
+    padding: 10px;
+
+}
+
+.heroVector {
+    width: 50%;
+    margin: 10px 0;
+    float: right;
+}
+
+#landingVector {
+    max-width: 80%;
+    height: auto;
+    float: right;
+}
+
+.btn {
+
+    background-color: #92E3A9;
+    font-weight: 400;
+    border-radius: 25px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.btn a{
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+}
+
+#mainPanel {
+    display: block;
+    margin: 10px 0;
+}
