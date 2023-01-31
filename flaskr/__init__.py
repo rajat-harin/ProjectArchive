@@ -8,6 +8,7 @@ def create_app(test_config = None):
     #create and config app
     app = Flask(__name__,instance_relative_config=True)
     app.config.from_object(DevelopmentConfig)
+    
 
     if test_config is None:
         #load instance config, if it exists, when not testing
