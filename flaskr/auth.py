@@ -1,4 +1,6 @@
 import functools
+import json
+from bson import ObjectId
 
 import pymongo
 
@@ -8,6 +10,8 @@ from flask import (
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from flaskr.db import get_db
+
+from flaskr.MongoEncoder import MongoJSONEncoder
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -49,7 +53,9 @@ def login():
         password = request.form['password']
         db = get_db()
         error = None
-        user = db.CustomerMaster.find_one({"email": username})
+        data_json = MongoJSONEncoder().encode(dict(db.CustomerMaster.find_one({"email": username})))
+        user = json.loads(data_json)
+        print(user)
 
         if user is None:
             error = 'Incorrect username.'
@@ -59,7 +65,7 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user['_id']
-            return redirect(url_for('index'))
+            return redirect(url_for('dashboard'))
 
         flash(error)
 
@@ -72,12 +78,12 @@ def load_logged_in_user():
     if user_id is None:
         g.user = None
     else:
-        g.user = get_db().CustomerMaster.find_one({"_id": user_id})
+        g.user = get_db().CustomerMaster.find_one({"_id": ObjectId(user_id)})
 
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('landing'))
 
 def login_required(view):
     @functools.wraps(view)

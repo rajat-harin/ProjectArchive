@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %} {% endblock %}
+<h1>{% block title %}Dashboard{% endblock %}</h1>
+
+
+{% block content %}
+<div class="hero">
+    <div id="mainPanel">
+        <div class="tagLine">
+            <p>Track your anime, manga or maybe your life one episode at a time.</p>
+        </div>
+        <div class="heroVector">
+            <img id="landingVector" src="{{ url_for('static', filename='landingNotesVector.png') }}"
+                alt="Landing Image">
+        </div>
+    </div>
+    <button class="btn"> <a href="#" >Get Started</a> </button>
+</div>
+{% endblock %}

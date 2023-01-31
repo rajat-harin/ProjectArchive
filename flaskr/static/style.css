@@ -51,6 +51,20 @@ nav ul li a:hover {
     background-color: #92E3A9;
 }
 
+nav ul li span {
+    display: block;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+    transition: background-color 2s;
+
+}
+
+nav ul li span:hover {
+    background-color: #92E3A9;
+}
+
 main {
     margin: 20px;
     padding: 10px;
