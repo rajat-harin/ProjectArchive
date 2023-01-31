@@ -5,7 +5,8 @@ from flask import current_app, g
 def get_db():
     db = getattr(g, "_database", None)
     if db is None:
-        db = g._database = PyMongo(current_app).db
+        cx = g._database = PyMongo(current_app).cx
+        db = g._database = cx.get_database('ProjectArchive')
 
     return db
 
