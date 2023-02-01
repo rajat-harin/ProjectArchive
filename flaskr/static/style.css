@@ -178,9 +178,65 @@ Flash Messages
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
+.container {
+    padding: 2px 16px;
+}
+
+.itemCard {
+    /* Add shadows to create the "card" effect */
+    -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+    transition: 0.3s;
+    border-radius: 0px;
+    width: 15%;
+    min-width: 200px;
+    margin: 10px;
+    float: left;
+
+}
+
+.itemCard:hover {
+    -webkit-filter: brightness(30%);
+    filter: brightness(30%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.itemCard img {
+    
+    /* position: absolute; */
+    /* width: 100%;
+    height: 100%; */
+    object-fit: cover;
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+}
+
+.itemCard .container {
+    line-height: 1.5em;
+    height: 5em;       /* height is 2x line-height, so two lines will display */
+    overflow: hidden;  /* prevents extra lines from being visible */
+    text-align: center;
+}
+
+
 .loginBox {
     width: 50%;
     padding: 30px;
+}
+
+.cardLink {
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
 }
 
 /**************************************************************************

@@ -16,6 +16,7 @@
             <li class="logo"><a href="{{ url_for('landing') }}">ProjectArchive</a></li>
             {% if g.user %}
             <li><span class="user">Hi! {{ g.user['email'] }}</span></li>
+            <li><a href="{{ url_for('anime.index') }}">Anime</a></li>
             <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
             {% else %}
             <li><a href="{{ url_for('auth.login') }}">Log In</a></li>

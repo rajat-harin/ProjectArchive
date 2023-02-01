@@ -53,14 +53,18 @@ def login():
         password = request.form['password']
         db = get_db()
         error = None
-        data_json = MongoJSONEncoder().encode(dict(db.CustomerMaster.find_one({"email": username})))
-        user = json.loads(data_json)
-        print(user)
-
-        if user is None:
+        user_bson = db.CustomerMaster.find_one({"email": username})
+        if user_bson is None:
             error = 'Incorrect username.'
-        elif not check_password_hash(user['password'], password):
-            error = 'Incorrect password.'
+        else :
+            data_json = MongoJSONEncoder().encode(dict(user_bson))
+            user = json.loads(data_json)
+            #print(user)
+
+            if user is None:
+                error = 'Incorrect username.'
+            elif not check_password_hash(user['password'], password):
+                error = 'Incorrect password.'
 
         if error is None:
             session.clear()

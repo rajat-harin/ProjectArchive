@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+<h1>
+    {% block title %}
+        {% if anime %}
+            {{anime["title"]}}
+        {% else %}
+            Error: Not Found!
+        {% endif %}
+    {% endblock %}
+</h1>
+
+
+
+{% endblock %}
+
+{% if anime %}
+    {% block content %}
+
+        <div class="card itemCard">
+            <img src="{{anime['main_picture']['large']}}" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h5>{{ anime["synopsis"] }}</h5>
+                <!-- <p>Architect & Engineer</p> -->
+            </div>
+        </div>
+
+    {% endblock %}
+
+{% endif %}

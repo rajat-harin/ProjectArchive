@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Anime List{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+{% if animeList %}
+{% for anime in animeList %}
+<a class="cardLink" href="{{ url_for('anime.getAnime',id=anime['node']['id']) }}">
+<div class="card itemCard">
+    <img src= "{{anime['node']['main_picture']['large']}}" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h5>{{ anime["node"]["title"] }}</h5>
+      <!-- <p>Architect & Engineer</p> -->
+    </div>
+  </div>
+</a>
+{% endfor %}
+{% endif %}
+{% endblock %}

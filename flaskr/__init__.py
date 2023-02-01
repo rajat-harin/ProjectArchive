@@ -3,10 +3,12 @@ import os
 from flask import (Flask, render_template)
 from flaskr.auth import login_required
 from flaskr.config import DevelopmentConfig
+from flask_cors import CORS
 
 def create_app(test_config = None):
     #create and config app
     app = Flask(__name__,instance_relative_config=True)
+    CORS(app)
     app.config.from_object(DevelopmentConfig)
 
     if test_config is None:
