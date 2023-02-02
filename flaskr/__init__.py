@@ -2,7 +2,7 @@ import os
 
 from flask import (Flask, render_template)
 from flaskr.auth import login_required
-from flaskr.config import DevelopmentConfig
+#from flaskr.config import DevelopmentConfig
 from flask_cors import CORS
 
 def create_app(test_config = None):
@@ -13,7 +13,7 @@ def create_app(test_config = None):
 
     if test_config is None:
         #load instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
+        #app.config.from_pyfile('config.py', silent=True)
         app.config.from_prefixed_env()
     else:
         app.config.from_mapping(test_config)
