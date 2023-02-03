@@ -1,3 +1,4 @@
+import json
 import os
 
 from flask import (Flask, render_template)
@@ -14,6 +15,7 @@ def create_app(test_config = None):
     if test_config is None:
         #load instance config, if it exists, when not testing
         #app.config.from_pyfile('config.py', silent=True)
+        app.config.from_file("config.json", load=json.load, silent=True)
         app.config.from_prefixed_env()
     else:
         app.config.from_mapping(test_config)

@@ -215,14 +215,14 @@ Flash Messages
     object-fit: cover;
     width: 100%;
     height: 20vw;
-    object-fit: cover;
 }
 
 .itemCard .container {
     line-height: 1.5em;
-    height: 5em;       /* height is 2x line-height, so two lines will display */
+    height: 4.5em;       /* height is 2x line-height, so two lines will display */
     overflow: hidden;  /* prevents extra lines from being visible */
     text-align: center;
+    text-overflow:ellipsis;
 }
 
 
@@ -297,4 +297,60 @@ input[type=submit]:hover {
 .white {
     background-color: #FFFFFF;
     color: #000000;
+}
+
+/**************************************************************************
+  Anime Details classes
+  *************************************************************************/
+
+.anime-poster {
+    width: 25%;
+    height: 35vw;
+    float: left;
+    object-fit: cover;
+    padding: 10px;
+    margin: 15px;
+    margin-right: 20px;
+}
+.anime-title{
+    color: #FFFFFF;
+}
+
+.anime-info {
+    color: #6f6f6f;
+    padding-top: 1px;
+    padding-left: 10px;
+    font-weight: 400;
+}
+
+.anime-alias{
+    font-size: 13px;
+}
+
+.anime-synopsis{
+    font-size: 16px;
+    font-weight: 300;
+}
+.anime-meta .col1 {
+    width: 35%;
+    float: left;
+}
+.anime-meta .col2 {
+    width: 35%;
+    float: left;
+    margin-left: 20px;
+}
+
+.anime-meta .item {
+    color: #6f6f6f;
+
+}
+
+.anime-meta .item-title {
+    display: inline;
+}
+
+.anime-meta .item-content {
+    display: inline;
+    margin-left: 5px;    
 }

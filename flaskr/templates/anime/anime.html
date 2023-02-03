@@ -4,11 +4,11 @@
 
 <h1>
     {% block title %}
-        {% if anime %}
-            {{anime["title"]}}
-        {% else %}
-            Error: Not Found!
-        {% endif %}
+    {% if anime %}
+
+    {% else %}
+    Error: Not Found!
+    {% endif %}
     {% endblock %}
 </h1>
 
@@ -17,16 +17,97 @@
 {% endblock %}
 
 {% if anime %}
-    {% block content %}
+{% block content %}
 
-        <div class="card itemCard">
-            <img src="{{anime['main_picture']['large']}}" alt="Avatar" style="width:100%">
-            <div class="container">
-                <h5>{{ anime["synopsis"] }}</h5>
-                <!-- <p>Architect & Engineer</p> -->
+<div id="anime-details">
+    <img class="anime-poster" src="{{anime['main_picture']['large']}}" alt="Avatar">
+    <div class="anime-info">
+        <div class="anime-info-top">
+            <div class="anime-title">
+            <h1>{{anime["title"]}} </h1>
+        </div>
+            <p class="anime-alias">
+                {% for values in anime["alternative_titles"]["synonyms"] %}
+                {{values}}, 
+                {% endfor %}
+                {{anime["alternative_titles"]["en"]}}, &nbsp;
+                {{anime["alternative_titles"]["ja"]}}
+            </p>
+        </div>
+        <div class="anime-synopsis">
+            <p>{{ anime["synopsis"] }}</p>
+        </div>
+        <br>
+        <div class="anime-meta">
+            <div class="col1">
+                <div class="item">
+                    <div class="item-title">Type : </div>
+                    <div class="item-content">{{ anime["media_type"].capitalize() }}</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Studios : </div>
+                    <div class="item-content">
+                        {% for studio in anime["studios"] %}
+                            {{studio["name"]}}
+                            {% if not loop.last %}
+                            , 
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Date aired : </div>
+                    <div class="item-content">
+                        {{anime["start_date"]}} to 
+                        {% if anime["end_date"] %}
+                            {{anime["end_date"]}}
+                        {% else %}
+                            ?
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Status : </div>
+                    <div class="item-content">{{anime["status"].replace('_',' ').capitalize()}}</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Genre : </div>
+                    <div class="item-content">
+                        {% for genre in anime["genres"] %}
+                            {{genre["name"]}}
+                            {% if not loop.last %}
+                            , 
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col2">
+                <div class="item">
+                    <div class="item-title">MAL Rank : </div>
+                    <div class="item-content">{{anime["rank"]}}</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Premiered : </div>
+                    <div class="item-content">{{anime["start_season"]["season"].capitalize()}}, {{anime["start_season"]["year"]}}</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Duration : </div>
+                    <div class="item-content">{{(anime["average_episode_duration"]/60) | round(1, 'floor')}} min/ep</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Rating : </div>
+                    <div class="item-content">{{anime["rating"].upper().replace('_',' ')}}</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Source : </div>
+                    <div class="item-content">{{anime["source"].replace('_',' ').capitalize()}}</div>
+                </div>
             </div>
         </div>
+    </div>
+</div>
 
-    {% endblock %}
+{% endblock %}
 
 {% endif %}
